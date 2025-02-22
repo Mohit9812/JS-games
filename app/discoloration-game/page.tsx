@@ -1,5 +1,4 @@
 'use client'
-import { Span } from "next/dist/trace";
 import { useEffect, useState } from "react";
 
 function validCell(i: number, j: number, n: number) {
@@ -37,12 +36,13 @@ const DiscolorationGame = () => {
 	useEffect(() => {
 		setGameArray(Array.from({ length: level }, () => Array(level).fill(0)));
 	}, [level]);
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const handleCellClick = (e: any) => {
 		if(won) return;
 		const row = Number(e.target.dataset.row);
 		const col = Number(e.target.dataset.col);
 		setMoves((prev) => {
-			let tempMoves = structuredClone(prev);
+			const tempMoves = structuredClone(prev);
 			tempMoves.push([row, col]);
 			return tempMoves;
 		})
