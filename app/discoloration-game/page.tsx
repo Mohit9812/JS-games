@@ -54,7 +54,7 @@ const DiscolorationGame = () => {
     setGameHistory([])
   }, [level])
 
-  // eslint-disable-next-line @typescript/eslint-no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleCellClick = (e: any) => {
     const row = Number(e.target.dataset.row)
     const col = Number(e.target.dataset.col)
